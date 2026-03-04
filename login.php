@@ -8,8 +8,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'] ?? '';
 
     // Sakarya Üniversitesi mail ve öğrenci no şifre kuralı
-    $valid_username = "g231210044@sakarya.edu.tr";
-    $valid_password = "g231210044";
+    $valid_username = "ornek.ogrenci@sakarya.edu.tr";
+    $valid_password = "123456789";
 
     if (empty($username) || empty($password)) {
         $notification = "Lütfen tüm alanları doldurun.";
