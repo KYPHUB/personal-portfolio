@@ -1,4 +1,4 @@
-# 🌐 Web Technologies – Personal Portfolio Website
+# 🌐 Personal Portfolio Website
 
 A multi-page personal portfolio website built for the **Web Technologies** course at Sakarya University, Department of Computer Engineering.
 
@@ -46,14 +46,14 @@ This project is an interactive website where the student introduces himself, sha
 
 **Option 1 – Python (recommended for static pages):**
 ```bash
-cd Web-Teknolojileri
+cd personal-portfolio
 python -m http.server 8000
 ```
 Then open [http://localhost:8000](http://localhost:8000) in your browser.
 
 **Option 2 – PHP (full functionality including login):**
 ```bash
-cd Web-Teknolojileri
+cd personal-portfolio
 php -S localhost:8000
 ```
 Then open [http://localhost:8000](http://localhost:8000) in your browser.
@@ -63,7 +63,7 @@ Then open [http://localhost:8000](http://localhost:8000) in your browser.
 ## 📁 Project Structure
 
 ```
-Web-Teknolojileri/
+personal-portfolio/
 ├── index.html               # Home page
 ├── hobilerim.html           # Hobbies page
 ├── cv.html                  # Resume page
