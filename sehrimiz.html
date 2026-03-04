@@ -5,9 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kişisel Portfolio Website</title>
-  <link rel="stylesheet" href="stylesehrimiz.css">
+  <link rel="stylesheet" href="css/sehrimiz.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="https://kit.fontawesome.com/27c32d15b7.js" crossorigin="anonymous"></script>
@@ -18,13 +17,13 @@
   <div id="header">
     <div class="container">
       <nav>
-        <img src="images/kyrie-irving-logo-kenneth-smith-transparent.png" class="logo">
+        <img src="images/logo.png" class="logo">
         <ul id="sidemenu">
           <li><a href="index.html">Hakkında</a></li>
           <li><a href="hobilerim.html">Hobilerim</a></li>
           <li><a href="cv.html">Özgeçmiş</a></li>
           <li><a href="sehrimiz.html">Şehrim</a></li>
-          <li><a href="mirasımız.html">Mirasımız</a></li>
+          <li><a href="mirasimiz.html">Mirasımız</a></li>
           <li><a href="iletisim.html">İletişim</a></li>
           <li><a href="login.php">Giriş Yap</a></li>
           <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
@@ -45,7 +44,7 @@
       ilk en uygun bölge, günümüz Odunpazarı mevkii ve daha sonraları Dorylaeum şehri olan Sarhöyük olmuş. Eskişehir,
       Ortaçağ’a kadar Dorylaion ve Doryllaeum adlarıyla anılmış. Friglerin ardından sırasıyla Lidyalıların, Perslerin,
       Makedonların ve Romalıların egemenliği altına giren Eskişehir, 1074 yılında Selçukluların eline geçmiştir. O
-      dönemde Sultanönü adıyla bilinen kent, mimari açıdan bir hayli gelişmiştir.
+      dönemde Sultanönü adıyla bilinen kent, mimari açıdan bir hayli gelişmiştir.</p>
 
     <p>Bizans döneminde kentte üç önemli yerleşim alanı karşımıza çıkmaktadır. Bunlar Dorylaion denilen bölge, buranın 3
       kilometre batısında, günümüzde Hamamyolu olarak bilinen kaplıcalar bölgesi (Ilıca) ve kentin 11 kilometre kuzey
@@ -161,7 +160,7 @@
         </ul>
       </div>
       <div class="image">
-        <img src="images/reşat.jpg" alt="Camiler">
+        <img src="images/resat.jpg" alt="Camiler">
         <div class="image-caption">Reşadiye Cami</div>
       </div>
     </div>
@@ -177,7 +176,7 @@
         </ul>
       </div>
       <div class="image">
-        <img src="images/çibörek.jpg" alt="Yöresel Lezzetler">
+        <img src="images/ciborek.jpg" alt="Yöresel Lezzetler">
         <div class="image-caption">Çibörek</div>
       </div>
     </div>
@@ -200,10 +199,11 @@
         <a href="kanlikavak.html"><img src="images/eskfoto/kanlikavak.webp" class="d-block w-100" alt="..."></a>
       </div>
       <div class="carousel-item">
-        <a href="odunpazariev.html"><img src="images/eskfoto/odunpazarıev.jpg" class="d-block w-100" alt="..."></a>
+        <a href="odunpazariev.html"><img src="images/eskfoto/odunpazariev.jpg" class="d-block w-100"
+            alt="Odunpazarı Evleri"></a>
       </div>
       <div class="carousel-item">
-        <a href="sazova.html"><img src="images/eskfoto/sazova main.jpg" class="d-block w-100" alt="..."></a>
+        <a href="sazova.html"><img src="images/eskfoto/sazova-main.jpg" class="d-block w-100" alt="Sazova Park"></a>
       </div>
       <div class="carousel-item">
         <a href="adalar.html"><img src="images/adalarslider.png" class="d-block w-100" alt="..."></a>
@@ -223,36 +223,36 @@
   <button id="backToTopBtn" onclick="scrollToTop()">Başa Dön</button>
   <script>
     // Butonun görünürlüğünü kontrol eden fonksiyon
-    window.onscroll = function() {
-        scrollFunction();
+    window.onscroll = function () {
+      scrollFunction();
     };
 
     function scrollFunction() {
-        var backToTopBtn = document.getElementById("backToTopBtn");
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            backToTopBtn.style.display = "block";
-        } else {
-            backToTopBtn.style.display = "none";
-        }
+      var backToTopBtn = document.getElementById("backToTopBtn");
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        backToTopBtn.style.display = "block";
+      } else {
+        backToTopBtn.style.display = "none";
+      }
     }
 
     // Sayfanın başına dönen fonksiyon
     function scrollToTop() {
-        document.body.scrollTop = 0; // Safari için
-        document.documentElement.scrollTop = 0; // Chrome, Firefox, IE ve Opera için
+      document.body.scrollTop = 0; // Safari için
+      document.documentElement.scrollTop = 0; // Chrome, Firefox, IE ve Opera için
     }
-</script>
+  </script>
 
 
   <script>
-    var sidemeu = document.getElementById("sidemenu");
+    var sidemenu = document.getElementById("sidemenu");
 
 
     function openmenu() {
-      sidemeu.style.right = "0";
+      sidemenu.style.right = "0";
     }
     function closemenu() {
-      sidemeu.style.right = "-200px";
+      sidemenu.style.right = "-200px";
     }
 
   </script>

@@ -1,108 +1,101 @@
-    <?php
-    // Kullanıcı adı ve şifre kontrolü
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Doğru kullanıcı adı ve şifre
-        $correct_username = "g231210044@sakarya.edu.tr";
-        $correct_password = "g231210044";
+<?php
+session_start();
+$notification = "";
+$notification_class = "";
 
-        // Kullanıcı adı ve şifre alınması
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'] ?? '';
+    $password = $_POST['password'] ?? '';
 
-        // Kullanıcı adı ve şifre kontrolü
-        if (!empty($username) && !empty($password)) {
-            // Kullanıcı adı ve şifrenin doğruluğunun kontrolü
-            if ($username === $correct_username && $password === $correct_password) {
-                // Başarılı giriş durumunda
-                $_SESSION['username'] = $username; // Kullanıcıyı oturumda sakla
-                header("Location: index.html"); // Ana sayfaya yönlendir
-                exit; // İşlem sonlandırılıyor
-            } else {
-                // Hatalı kullanıcı adı veya şifre durumunda
-                echo "Kullanıcı adı veya şifre hatalı. Lütfen tekrar deneyiniz.";
-            }
-        } else {
-            // Kullanıcı adı veya şifre boş bırakıldığında
-            echo "Kullanıcı adı veya şifre boş bırakılamaz!";
-        }
+    // Sakarya Üniversitesi mail ve öğrenci no şifre kuralı
+    $valid_username = "g231210044@sakarya.edu.tr";
+    $valid_password = "g231210044";
+
+    if (empty($username) || empty($password)) {
+        $notification = "Lütfen tüm alanları doldurun.";
+        $notification_class = "notification-error";
+    } elseif ($username === $valid_username && $password === $valid_password) {
+        $_SESSION['loggedin'] = true;
+        $_SESSION['username'] = $username;
+        $notification = "<i class=\"fa-solid fa-check-circle\"></i> Başarıyla giriş yaptınız! Ana sayfaya yönlendiriliyorsunuz...";
+        $notification_class = "notification-success";
+        header("Refresh: 2; URL=index.html");
+    } else {
+        $notification = "<i class=\"fa-solid fa-exclamation-circle\"></i> Kullanıcı adı veya şifre hatalı.";
+        $notification_class = "notification-error";
     }
-    ?>
+}
+?>
+<!DOCTYPE html>
+<html lang="tr">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap – Portfolio</title>
+    <link rel="stylesheet" href="css/login.css">
+    <script src="https://kit.fontawesome.com/27c32d15b7.js" crossorigin="anonymous"></script>
+</head>
 
-    <!DOCTYPE html>
-    <html lang="tr">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Kişisel Portfolio Website</title>
-        <link rel="stylesheet" href="stylekaydol.css">
-        <script src="https://kit.fontawesome.com/27c32d15b7.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <div id="header">
-            <div class="container"> 
-                <nav>
-                    <img src="images/kyrie-irving-logo-kenneth-smith-transparent.png" class="logo">
-                    <ul id="sidemenu">
-                        <li><a href="index.html">Hakkında</a></li>
-                        <li><a href="hobilerim.html">Hobilerim</a></li>                    
-                        <li><a href="cv.html">Özgeçmiş</a></li>
-                        <li><a href="sehrimiz.html">Şehrim</a></li>
-                        <li><a href="mirasımız.html">Mirasımız</a></li>
-                        <li><a href="iletisim.html">İletişim</a></li>
-                        <li><a href="kaydol.html">Giriş Yap / Kaydol</a></li>
-                        <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
-                    </ul>
-                    <i class="fa-solid fa-bars" onclick="openmenu()"></i>
-                </nav>
+<body>
+    <header id="header">
+        <div class="container">
+            <nav>
+                <img src="images/logo.png" class="logo" alt="Logo">
+                <ul id="sidemenu">
+                    <li><a href="index.html">Hakkında</a></li>
+                    <li><a href="hobilerim.html">Hobilerim</a></li>
+                    <li><a href="cv.html">Özgeçmiş</a></li>
+                    <li><a href="sehrimiz.html">Şehrim</a></li>
+                    <li><a href="mirasimiz.html">Mirasımız</a></li>
+                    <li><a href="iletisim.html">İletişim</a></li>
+                    <li><a href="login.php">Giriş Yap</a></li>
+                    <i class="fa-solid fa-xmark" aria-hidden="true" onclick="closemenu()"></i>
+                </ul>
+                <i class="fa-solid fa-bars" aria-hidden="true" onclick="openmenu()"></i>
+            </nav>
+        </div>
+    </header>
+    <main id="login-section">
+        <div class="login-card">
+            <div class="login-icon">
+                <i class="fa-solid fa-user-lock"></i>
             </div>
-        </div>
-        <div id="login-form">
             <h2>Giriş Yap</h2>
-            <form id="login-form" action="login.php" method="post">
-                <label for="username">Kullanıcı Adı:</label>
-                <input type="email" id="username" name="username" required><br><br>
-                <label for="password">Şifre:</label>
-                <input type="password" id="password" name="password" required><br><br>
-                <input type="submit" value="Giriş Yap">
+            <p class="login-subtitle">Devam etmek için giriş yapın</p>
+            <form id="login-form" method="POST" action="login.php">
+                <div class="input-group">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" id="username" name="username" placeholder="E-posta adresiniz" required value="<?php echo htmlspecialchars($username ?? ''); ?>">
+                </div>
+                <div class="input-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="password" name="password" placeholder="Şifreniz" required>
+                </div>
+                <button type="submit" class="login-btn">
+                    <span>Giriş Yap</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
             </form>
-            <div id="notification"></div>
+            <?php if (!empty($notification)): ?>
+                <div id="notification" class="<?php echo $notification_class; ?>" style="display: block; opacity: 1; visibility: visible; margin-top: 20px;">
+                    <?php echo $notification; ?>
+                </div>
+            <?php endif; ?>
         </div>
-        <script>
-            var sidemeu = document.getElementById("sidemenu");
+    </main>
+    <script>
+        var sidemenu = document.getElementById("sidemenu");
 
-            function openmenu(){
-                sidemeu.style.right="0";
-            }
-            function closemenu(){
-                sidemeu.style.right="-200px";
-            }
+        function openmenu() {
+            sidemenu.style.right = "0";
+        }
 
-            // Başarılı giriş bildirimi ve yönlendirme
-            var form = document.getElementById("login-form");
-            form.addEventListener("submit", function(event) {
-                var username = document.getElementById("username").value;
-                var password = document.getElementById("password").value;
-                if(username === "g231210044@sakarya.edu.tr" && password === "g231210044") {
-                    event.preventDefault(); // Formun otomatik gönderilmesini engelle
-                    var notification = document.getElementById("notification");
-                    notification.innerHTML = "Başarıyla giriş yaptınız! Ana sayfaya yönlendiriliyorsunuz.";
-                    notification.style.color = "green";
-                    setTimeout(function() {
-                        notification.innerHTML = "";
-                        window.location.href = "index.html"; // Ana sayfaya yönlendir
-                    }, 3000); // 3 saniye sonra bildirimi kaldır ve yönlendir
-                } else {
-                    event.preventDefault(); // Formun otomatik gönderilmesini engelle
-                    var notification = document.getElementById("notification");
-                    notification.innerHTML = "Kullanıcı adı veya şifre hatalı. Lütfen tekrar deneyiniz.";
-                    notification.style.color = "red";
-                    setTimeout(function() {
-                        notification.innerHTML = "";
-                    }, 3000); // 3 saniye sonra bildirimi kaldır
-                }
-            });
-        </script>
-    </body>
-    </html>
+        function closemenu() {
+            sidemenu.style.right = "-200px";
+        }
+    </script>
+</body>
+
+</html>

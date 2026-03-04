@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Bilgileri</title>
-    <link rel="stylesheet" href="formgoruntule.css">
+    <link rel="stylesheet" href="css/formgoruntule.css">
 </head>
+
 <body>
     <div class="container">
         <h1>Form Bilgileri</h1>
@@ -15,15 +17,14 @@
     </div>
     <button class="back-btn" onclick="goBack()">Geri</button>
 
-    <button class="back-btn" onclick="goBack()">Geri</button>
 
     <script>
         function goBack() {
-            window.location.href = "index.html";
+            window.location.href = "iletisim.html";
         }
     </script>
     <script>
-        window.onload = function() {
+        window.onload = function () {
             const params = new URLSearchParams(window.location.search);
             const formData = document.getElementById('form-data');
             const turkceEtiketler = {
@@ -44,4 +45,5 @@
         }
     </script>
 </body>
+
 </html>
