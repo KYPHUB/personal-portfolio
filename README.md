@@ -130,5 +130,4 @@ personal-portfolio/
 ## 👤 Author
 
 **Kerem Yunus Parlakyiğit**  
-Sakarya University – Computer Engineering  
-Student ID: 123456789
+Sakarya University – Computer Engineering
