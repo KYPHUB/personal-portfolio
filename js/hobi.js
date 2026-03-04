@@ -1,5 +1,6 @@
 // TMDb API ile popüler filmleri çekme
-const apiKey = 'b705a032e0d108872e63c9defa0c7771';
+// Kendi TMDb API anahtarınızı aşağıya yapıştırın (Get your API key from https://www.themoviedb.org/)
+const apiKey = 'YOUR_TMDB_API_KEY_HERE';
 const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=tr-TR`;
 
 fetch(url)

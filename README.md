@@ -42,6 +42,16 @@ This project is an interactive website where the student introduces himself, sha
 - A modern web browser
 - Python 3.x (for local server) **or** PHP (for full functionality including login)
 
+### 🔑 API Setup (TMDb)
+To display popular movies dynamically on the Hobbies page, you will need a free TMDb API key:
+1. Create an account at [The Movie Database (TMDb)](https://www.themoviedb.org/).
+2. Go to your account settings (API section) and generate a Developer API key.
+3. Open the `js/hobi.js` file.
+4. Replace the placeholder string with your actual API key:
+   ```javascript
+   const apiKey = 'YOUR_TMDB_API_KEY_HERE';
+   ```
+
 ### Running Locally
 
 **Option 1 – Python (recommended for static pages):**
